@@ -6,11 +6,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
       - name: Install dependencies
-        run: npm install
+        run: npm ci
       - name: Run tests
         run: npm test
-      - run : echo "Test completed successfully"
+      - name: Confirm success
+        run: echo "Test completed successfully"

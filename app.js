@@ -6,9 +6,4 @@ app.get('/', (req, res) => {
     res.send('Hello, World!');
 });
 
-const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
-
-module.exports = app; // Export the app for testing purposes
+module.exports = app;

@@ -1,20 +1,13 @@
 const request = require('supertest');
 const app = require('../app'); // Adjust the path to your app.js file
+const assert = require('node:assert/strict');
 
 describe('GET /', function () {
-    it('responds with text Hello, World!"', async function () {
-        const chai = await import('chai');
-        const expect = chai.expect;
-
-        await request(app)
+    it('responds with text Hello, World!', async function () {
+        const response = await request(app)
             .get('/')
-            .expect(200)
-            .then((response) => {
-                expect(response.text).to.equal('Hello, World!');
-            });
+            .expect(200);
 
-
-
-    })
-
-})
+        assert.equal(response.text, 'Hello, World!');
+    });
+});
